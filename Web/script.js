@@ -5,7 +5,8 @@ formElement.addEventListener("submit", (event)=>{
     let nombreDelPaciente = document.getElementById("Nombre_del_paciente").value;
     let IdPaciente = document.getElementById("Idpaciente").value;
     let PqrDescription = document.getElementById("pqrDescription").value;
-    let pqr = {nombreDelPaciente: nombreDelPaciente, IdPaciente: IdPaciente, PqrDescription: PqrDescription}
+    let eps = document.getElementById("epsDescription").value;
+    let pqr = {nombreDelPaciente: nombreDelPaciente, IdPaciente: IdPaciente, PqrDescription: PqrDescription, eps: eps}
     let pqrJson= JSON.stringify(pqr);
     console.log(pqrJson);
 })
