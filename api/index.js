@@ -3,6 +3,7 @@ const cors= require('cors')
 
 const app = express()
 const port= 3000
+let pqrArray=[]
 
 app.use(
     express.urlencoded({
@@ -16,10 +17,13 @@ app.use(express.json({
 app.use(cors())
 
 app.get('/transaction',(req, res) =>{
-    res.send("Se recibio un get")
+    res.send(JSON.stringify(pqrArray))
 })
 app.post('/transaction',(req, res) =>{
-    res.send("Se recibe un post")
+    let pqr=req.body;
+    pqrArray.push(pqr)
+    res.send(JSON.stringify("PQR guardada"))
+    console.log(pqrArray)
 })
 
 app.delete('/prueba',(req, res) =>{

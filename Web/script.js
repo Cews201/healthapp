@@ -9,4 +9,10 @@ formElement.addEventListener("submit", (event)=>{
     let pqr = {nombreDelPaciente: nombreDelPaciente, IdPaciente: IdPaciente, PqrDescription: PqrDescription, eps: eps}
     let pqrJson= JSON.stringify(pqr);
     console.log(pqrJson);
+    fetch('http://localhost:3000/transaction',{
+        method: 'post',
+        body: pqrJson
+    })
 })
+
+fetch('http://localhost:3000/transaction').then(x => x.json()).then(console.log)
